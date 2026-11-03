@@ -1,70 +1,26 @@
-# 永安新村都更案・方案一 — GitHub Pages 發布說明
+# 永安新村都更案_方案一｜2026-11-03 模型更新
 
-本包使用最新「TOD範圍面更新預覽」版本，保留五項TOD的深藍標籤、下引線與半透明淺紅色範圍面。
+來源：SITE_WEB_EXPORT_OP1_20261103_070954.zip（匯出時間：2026-11-03 07:10:08，臺北時間）。
 
-## 檔案
-- index.html：完整網站，已內嵌模型、貼圖與分析資料。
-- .nojekyll：停用Jekyll處理，直接發布靜態檔案。
-- README.md：本操作說明。
+本版更新住宅棟幾何方向及四個觀察點位置，並同步新版公設棟、住宅棟與綠化庭園的定位範圍。保留既有版型、材質與貼圖、道路動線設定，以及五項TOD深藍標籤、下引線與半透明淺紅色範圍面。
 
-不需要另行上傳SKP、GLB或其他模型檔案。不需要安裝開發工具或執行建置。
+## 重新上傳原網站
+1. 先解壓縮本ZIP。
+2. 開啟原本發布方案一的GitHub儲存庫，進入Code頁。
+3. 點Add file → Upload files。
+4. 將本包index.html、.nojekyll、README.md上傳至儲存庫最上層，覆蓋相同檔名。
+5. 提交至目前Pages使用的分支（先前流程為main）。
+6. 等待Actions的Pages發布工作成功，再開啟原網站網址；無需重建儲存庫或改網址。
+7. 如果仍是舊模型，Windows可按Ctrl+F5；手機可用無痕分頁重新開啟。
 
-## 1. 建立新的儲存庫
-1. 登入 https://github.com/ ，右上角「+」→「New repository」。
-2. Owner選擇自己的帳號。
-3. Repository name填入 yongan-op1-site；若已有同名儲存庫，另取新名稱。
-4. Description可填「永安新村都更案方案一｜基地環境互動分析」。
-5. 使用GitHub Free時，選Public才能使用此Pages發布方式。這代表原始檔與內嵌模型可被公眾存取。
-6. 開啟Add README（或Add a README file），讓main分支先建立；其他項目維持預設。
-7. 點Create repository。
+網站模型、貼圖與資料已內嵌在index.html，不需另外上傳GLB或SKP。不要直接上傳ZIP，也不要把外層資料夾一併放入。
 
-## 2. 上傳檔案
-1. 先將下載的ZIP解壓縮；不要直接上傳ZIP。
-2. 在新儲存庫的Code頁點Add file → Upload files。
-3. 上傳解壓縮後的index.html、.nojekyll與README.md三個檔案，讓它們位於儲存庫最上層。不要把外層資料夾一起拖入。
-4. Commit訊息可填「Publish Yongan OP1 site」。選直接提交至main，點Commit changes。
-5. 回到Code頁確認可直接看到index.html。首頁不可更名為index.html.txt，也不要放到子資料夾。
+## 本次驗證
+- 網站三角形總數與新GLB一致：122774。
+- 206525個使用中的來源幾何頂點全部找到對應，最大座標差約0.000031公尺，為浮點精度差。
+- 北、東、南、西觀察點與新版points.json一致，使用匯出資料的外框中心，不以GLB節點原點代替。
+- 貼圖、TOD定位資料與範圍面資料未變更；道路與動線原始匯出資料未變，因此保留原網站已整理的設定。
+- 預覽HTML與上傳用index.html內容一致。
 
-## 3. 啟用GitHub Pages
-1. 在儲存庫上方點Settings。
-2. 左側選Pages。
-3. Build and deployment區塊的Source選Deploy from a branch。
-4. Branch選main，右側資料夾選/ (root)。
-5. 點Save。不需要填Custom domain。
-6. 等待發布；GitHub官方說明變更最多可能需要10分鐘。
-7. 到Actions查看pages build and deployment工作是否成功，再回Settings → Pages點Visit site或開啟顯示的網址。
-
-## 4. 網址與驗收
-一般專案網站網址：https://你的GitHub帳號.github.io/yongan-op1-site/
-若仍使用hwoarang820-commits帳號，且儲存庫名稱確實為yongan-op1-site，預期網址為：
-https://hwoarang820-commits.github.io/yongan-op1-site/
-這是預期格式，並不代表網站已發布；以Pages頁面顯示的網址為準。
-
-開啟網站後確認：
-- 案名為方案一，模型及材質正常載入。
-- 綠化與庭園有五項TOD深藍標籤、下引線、淺紅色半透明範圍面與外框。
-- 旋轉、縮放模型後，範圍面跟隨模型。
-- 其他分析章節可切換，手機直向畫面可操作。
-
-## 5. 日後更新
-1. 取得新版完整HTML，將檔名改為index.html。
-2. 在同一個儲存庫的Code頁點Add file → Upload files。
-3. 上傳新版index.html到原本位置，提交至main；同名檔案會被更新。
-4. 等待Actions發布成功，再重新整理網站。若仍看到舊版，Windows可用Ctrl+F5或無痕視窗查看。
-5. 不必重建儲存庫或重設Pages；維持相同儲存庫名稱即可保留網址。
-
-## 常見問題
-- 404：確認發布完成、Source為Deploy from a branch、Branch為main、資料夾為/ (root)，且index.html在儲存庫最上層。
-- 看見README文字而非模型：確認index.html確實已上傳，名稱及所在位置正確。
-- main無法選取：先提交至少一個檔案或README，再回Pages設定。
-- 上傳ZIP後沒有網站：GitHub不會自動解壓，請上傳ZIP裡的三個檔案。
-- 更新後沒變：先確認Actions成功，再用Ctrl+F5或無痕視窗查看。
-- 模型未顯示：使用近期版本Chrome或Edge，確認WebGL可用且index.html上傳完整。
-
-## 驗證狀態
-發布版index.html與最新預覽內容逐位元相同；模型、貼圖與分析資料內嵌。先前已完成語法、邊界資料與多視角繪製邏輯檢查。本次未代為建立GitHub儲存庫或發布，仍需依上述步驟操作並驗收線上畫面。
-
-## GitHub官方說明
-- 建立Pages網站：https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site
-- 設定發布來源：https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
-- 上傳檔案：https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository
+## 尚未完成的驗證
+未完成瀏覽器畫面及iPhone／Android實機驗證。原樣板375×667直向小螢幕有TOD標籤隱藏的既知問題，本次模型更新未調整該版面。iPhone模型解壓縮功能需要Safari／iOS 16.4以上，並需WebGL2可用。

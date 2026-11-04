@@ -1,8 +1,8 @@
 <!doctype html><html lang="zh-Hant"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#081019"><meta name="apple-mobile-web-app-capable" content="yes">
-<title>永安新村都更案_方案一｜基地環境互動分析</title>
-<meta name="site-release" content="YONGAN-OP1-20261103-MODEL-UPDATE">
+<meta name="theme-color" content="#ffffff"><meta name="apple-mobile-web-app-capable" content="yes">
+<title>永安新村都更案_方案一｜白色版V1.1 光影升級｜基地環境互動分析</title>
+<meta name="site-release" content="YONGAN-OP1-20261104-LIGHT-UI-V1">
 <style>
 :root {--ink:#f6f7f6;--muted:#aab5bc;--subtle:#6e8796;--deep:#081019;--panel:#0e1a25;--line:rgba(197,228,237,.16);--aqua:#8de3e4;--orange:#ffc28b;--coral:#ff806f;--mint:#a6d8b2;--blue:#74bfff;}
 *{box-sizing:border-box}html,body{width:100%;height:100%;margin:0;overflow:hidden}body{font-family:'Microsoft JhengHei','Noto Sans TC','PingFang TC',sans-serif;color:var(--ink);background:#081019;-webkit-font-smoothing:antialiased}
@@ -189,28 +189,187 @@ body.mobile-focus .story{display:none}
 #analysisOverlay g.vector-icon{filter:drop-shadow(0px 3px 8px rgba(0,0,0,.42))}
 #analysisOverlay .overlay-pill{font-size:12px;letter-spacing:.03em}
 </style>
+<style id="lightEditorialTheme">
+
+/* ----------------------------------------------------------
+   YONGAN / LIGHT EDITORIAL UI — 2026.11.04
+   A presentation-layer revision only. The 2026.11.03 OP1
+   model data, mesh, route paths, view vectors, solar/wind
+   overlays, materials and analytic geometries remain intact.
+   ---------------------------------------------------------- */
+:root{
+ --ink:#233443;--muted:#627381;--subtle:#8295a0;--deep:#f5f8fa;
+ --panel:#ffffff;--line:rgba(37,74,92,.15);--aqua:#238a98;
+ --orange:#d07d3a;--coral:#ba5f58;--mint:#3f866d;--blue:#2c77ae;
+}
+html,body{background:#f5f8fa;color:var(--ink)}
+body{font-family:'Microsoft JhengHei','Noto Sans TC','PingFang TC',sans-serif}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #197e96;outline-offset:3px}
+#stage{background:radial-gradient(ellipse at 36% 32%,#fff 8%,#f8fafb 58%,#eaf1f5 100%)}
+.grid-overlay{background:linear-gradient(90deg,rgba(238,245,248,.19),transparent 38%,rgba(230,238,244,.12));box-shadow:inset 0 0 110px rgba(65,112,133,.045)}
+.noise{opacity:.045}
+.topbar{height:78px;padding:0 38px;border-bottom:1px solid rgba(59,95,111,.12);background:rgba(255,255,255,.93);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);box-shadow:0 5px 27px rgba(34,73,87,.045)}
+.brand{gap:16px}.brandmark{border-color:#346677;width:29px;height:29px}
+.brandmark:before{border-left-color:#237d91;border-bottom-color:#237d91}
+.brandname{font-size:15px;letter-spacing:.08em;font-weight:700;color:#1f3440;line-height:1.3;white-space:nowrap}
+.brandname small{font-size:9px;color:#82949d;letter-spacing:.19em;margin-top:6px}
+.brand-option{color:#288194;font-size:12px;letter-spacing:.08em;font-weight:600;border-left:1px solid #bfd2d8;padding-left:11px;margin-left:6px}
+.topmeta{color:#78909b;gap:15px;font-size:10px}
+.topmeta .cap{color:#778c97;letter-spacing:.14em}
+.pill{border:1px solid #d8e6e9;color:#54717d;background:#f5f9fa;padding:8px 13px}
+.iconbtn{background:#fff;color:#476b78;border:1px solid #d7e5e9;width:37px;height:37px;box-shadow:0 2px 5px rgba(46,84,102,.045)}
+.iconbtn:hover{background:#eaf5f6;border-color:#92bec8;color:#1b697b}
+.rail{left:27px;gap:6px;z-index:17}
+.rail:before{content:'';position:absolute;left:8px;top:12px;bottom:12px;width:1px;background:#d9e5e9;z-index:-1}
+.railbtn{min-height:35px;color:#8a9faa;padding:5px 5px;gap:11px;border-radius:7px}
+.railbtn:hover{color:#356474;background:rgba(255,255,255,.84)}
+.railbtn .dot{width:6px;height:6px;background:#bbcdd3;box-shadow:0 0 0 5px #f5f8fa}
+.railbtn .count{opacity:1;color:#8a9faa;font-size:10px;min-width:22px}
+.railbtn .name{letter-spacing:.07em;color:#3d6474;font-size:11px}
+.railbtn.active{color:#1f768b}
+.railbtn.active .count{color:#207c90;font-weight:700}
+.railbtn.active .dot{width:9px;height:9px;background:#2c99a7;box-shadow:0 0 0 5px #deeff1}
+.railbtn.active .name{color:#1f4d5b;font-weight:700}
+.story{width:min(37vw,550px);min-width:430px;padding:112px 43px 113px 40px;background:rgba(255,255,255,.974);border-left:1px solid #e2eaec;box-shadow:-28px 0 65px rgba(43,76,90,.068);backdrop-filter:blur(16px)}
+.story:before{top:100px;left:40px;width:42px;height:3px;background:#278ca0}
+.story-container{max-height:100%;scrollbar-color:#ccdfe5 transparent}
+.chapter-no{color:#2b8494;font-size:11px;margin-bottom:20px;letter-spacing:.12em;font-weight:700}
+.chapter-no span{color:#a1b0b7;font-weight:400;letter-spacing:.12em}
+.copy .title,.title{color:#233542;font-size:clamp(33px,3.1vw,49px);letter-spacing:-.045em;line-height:1.3;font-weight:700;margin-bottom:23px}
+.lead{color:#526a78;font-size:13px;line-height:2.0;margin-bottom:17px}
+.story-divider{background:#e5edf0;margin:22px 0}
+.story .fact-grid{gap:13px;margin:13px 0}
+.story .fact-row{grid-template-columns:120px 1fr;gap:12px;font-size:12px}
+.story .fact-row dt{color:#2a8797;font-size:10px;letter-spacing:.06em;font-weight:700}
+.story .fact-row dd{color:#415866;font-weight:500;line-height:1.8}
+.story .selected{color:#207c8a}
+.story .bigmetric{color:#223f4a}.story .bigmetric small{color:#8798a2}
+.story .hint{color:#788c98;border-top-color:#e4edf0}
+.story-footnote{color:#768a96;border-top-color:#e5edef}
+.control-panel{background:#f6f9fa;border:1px solid #deeaee;border-radius:13px;padding:19px;box-shadow:0 5px 16px rgba(35,74,89,.024)}
+.control-panel .label{color:#668c99;font-size:10px;font-weight:700;margin-bottom:12px}
+.control-row{color:#334e5b;font-size:12px}
+.control-stat{color:#1a8796}
+.range{accent-color:#2b93a3}
+.choice{background:white;border:1px solid #d1e0e4;color:#607884;border-radius:7px;font-size:12px;min-height:35px}
+.choice:hover{background:#e7f5f7;color:#20788b;border-color:#a3cbd5}
+.choice.active{background:#237f90;color:white;border-color:#237f90;box-shadow:0 3px 8px rgba(32,116,136,.12)}
+.mini-note,.speednote,.view-note{color:#718995}
+.mini-readout>div{background:#fff;border-color:#dfebee}
+.mini-readout span{color:#7f929d}.mini-readout strong{color:#2d4d5b}
+.status-line{color:#667f8b}
+.status-line:before{background:#e6a45f}
+.windrose-card{background:#fff;border-color:#dce8ec}
+.windrose-head{color:#2f4e5c}.windrose-head span{color:#748c98}
+.windrose-keys{color:#536b78}.windrose-card .mini-note{color:#7d919c}
+.windrose g:nth-of-type(1) text{fill:#314d5a}
+.neighbor-btn{background:#fff;color:#3b5664;border-color:#dce8ec}
+.neighbor-btn .nh-number{color:#25889c}.neighbor-btn .nh-height{color:#344f5d}.neighbor-btn .nh-area{color:#7b929f}
+.neighbor-btn.active{border-color:#5eacbe;background:#e9f6f8}
+.neighbor-footnote{color:#758c97}
+.schematic-tag{top:101px;left:124px;background:rgba(255,255,255,.9);border:1px solid #d9e8eb;color:#6e8e9b;border-radius:5px;box-shadow:0 3px 12px rgba(35,75,91,.04);letter-spacing:.14em;padding:9px 12px}
+.analysis-guide{top:149px;left:124px;max-width:calc(63vw - 146px);background:rgba(255,255,255,.94);border-color:#d5e5e9;box-shadow:0 12px 28px rgba(54,92,108,.07);border-radius:11px;padding:13px 16px}
+.analysis-guide b{color:#257e93;font-size:10px;letter-spacing:.18em}
+.analysis-guide span,.legend-row{color:#3e5c69}
+.legend-row{font-size:11px}
+.legend-swatch{box-shadow:none}
+.scene-badge{left:124px;bottom:108px;color:#8396a0;font-size:10px}
+.scene-badge .line{background:#268ea0}.scene-badge b{color:#4e7180;font-weight:700}
+.compass{left:calc(63% - 65px);bottom:118px;border:1px solid #d5e4e8;color:#627b89;background:rgba(255,255,255,.92);box-shadow:0 5px 20px rgba(38,75,93,.07)}
+.compass .n{color:#237c91}.compass .s,.compass .w,.compass .e{color:#8599a4}
+.compass .needle{background:linear-gradient(#2b8c9f 50%,#9caeb8 50%)}.compass .needle:before{border-bottom-color:#278fa1}
+#analysisOverlay text:not(.overlay-pill){stroke:rgba(255,255,255,.92);stroke-width:3px;fill:#284c61}
+#analysisOverlay text.overlay-pill{stroke:none;fill:#f5f8f9}
+.loadflag{background:rgba(255,255,255,.94);border-color:#d2e4e8;color:#317388;left:124px;box-shadow:0 5px 20px rgba(35,73,90,.07)}
+#loadflag:not(.done){color:#2a7186;background:#fff;border-color:#cee1e5}
+.footer{height:76px;padding:0 33px;gap:21px;border-top:1px solid #dce6eb;background:rgba(255,255,255,.958);backdrop-filter:blur(19px);-webkit-backdrop-filter:blur(19px);box-shadow:0 -9px 26px rgba(43,80,99,.045)}
+.footlabel{color:#788b96;font-size:10px;min-width:172px}.footlabel b{color:#2a5364;font-size:15px}
+.progress{background:#dce9ed}.progress-inner{background:#298d9f}
+.progress-ticks span{background:#a9c3cc;border-color:#fff}
+.foot-hint{color:#8195a0}
+.navbutton{width:41px;height:41px;background:#fff;color:#426877;border:1px solid #d5e4e9}
+.navbutton:hover{background:#267f90;color:#fff;border-color:#267f90}
+.overlay{background:rgba(37,58,71,.4);backdrop-filter:blur(12px)}
+.modal{background:#fff;border-color:#dce8ec;box-shadow:0 25px 90px rgba(20,49,66,.16);color:#2b4755}
+.modal h2{color:#203d4c}.modal h3{color:#27576a}
+.modal p,.modal li{color:#526d7b}.modal img{border-color:#d5e5e9}
+.modalclose{color:#3f6678;border-color:#cedee4;background:#f6fafb}
+.layeritem{background:#f2f7f8;color:#426374}
+#mobileChapter{background:#fff;color:#2b5262;border:1px solid #d3e2e8;color-scheme:light}
+.stage-tools{position:fixed;left:124px;bottom:147px;z-index:14;display:flex;gap:8px;align-items:center}
+.stage-tools button{border:1px solid #d0e1e6;min-height:34px;padding:0 13px;border-radius:19px;color:#477485;background:rgba(255,255,255,.94);font-size:11px;font-weight:600;letter-spacing:.04em;box-shadow:0 5px 15px rgba(35,75,90,.05);backdrop-filter:blur(12px);transition:background .2s,border-color .2s}
+.stage-tools button:hover{background:#e9f5f7;border-color:#94c4cf}
+.stage-tools button:focus-visible{outline:2px solid #23899e}
+body.focus-model .story{display:none}
+body.focus-model .scene-badge{display:flex}
+body.focus-model .stage-tools #toggleStory{background:#2d8293;color:white;border-color:#2d8293}
+@media(max-width:1150px){.topbar{padding:0 24px}.story{width:41vw;min-width:355px;padding-left:30px;padding-right:25px}.story:before{left:30px}.rail{left:11px}.schematic-tag,.analysis-guide,.stage-tools{left:65px}.scene-badge{left:65px}.loadflag{left:65px}.compass{left:calc(51% - 50px)}}
+@media(max-width:760px){
+ .topbar{height:62px;padding:0 15px}
+ .brand{gap:9px}.brandname{font-size:12px;letter-spacing:.03em}.brandname small{font-size:8px;letter-spacing:.13em}.brand-option{font-size:10px;padding-left:7px;margin-left:2px}
+ .brandmark{width:25px;height:25px}.brandmark:before{width:10px;height:10px}
+ .topmeta .cap,.topmeta .pill{display:none}.topmeta{gap:7px}.iconbtn{width:32px;height:32px}
+ .story{width:100%;min-width:0;background:#fff;box-shadow:0 -13px 38px rgba(35,70,87,.085);border-top:1px solid #dde9ec;border-left:0;padding:17px 20px 15px}
+ .story:before{display:none}.story-container{max-height:100%}
+ .copy .title,.title{font-size:clamp(24px,7.2vw,34px);margin-bottom:10px}
+ .chapter-no{font-size:10px;margin-bottom:9px}.lead{font-size:12px;line-height:1.8}
+ .story .fact-row{grid-template-columns:96px 1fr;gap:8px}.story .fact-row dt{font-size:10px}.story .fact-row dd{font-size:11px}
+ .story-divider{margin:12px 0}.control-panel{padding:13px;border-radius:10px}
+ .choice{min-height:42px}.analysis-guide{top:100px;left:12px;max-width:62vw;padding:9px 11px}
+ .analysis-guide b{font-size:9px}.analysis-guide span{font-size:10px}
+ .schematic-tag,.visual-label,.scene-badge{display:none!important}
+ .compass{left:auto;right:13px;top:75px;bottom:auto;width:51px;height:51px}
+ .footer{height:64px;padding:0 12px;gap:9px}.foot-hint,.footlabel{display:none}
+ .stage-tools{left:auto;right:12px;bottom:calc(54% + 77px);gap:5px}
+ .stage-tools button{padding:0 9px;min-height:34px;font-size:10px}
+ .loadflag{left:auto;right:12px}
+ #mobileChapter{min-width:130px;max-width:48vw;min-height:42px;background:#fff;color:#315a6a;border-color:#cddfe5}
+ .navbutton{width:42px;height:42px}
+ .neighbor-list{max-height:130px}
+}
+@media(max-width:760px) and (orientation:portrait){
+ .topbar{height:calc(61px + env(safe-area-inset-top,0px));padding:env(safe-area-inset-top,0px) 12px 0 14px}
+ .story{top:52dvh;bottom:calc(64px + env(safe-area-inset-bottom,0px));height:auto;padding:14px 18px 14px}
+ .stage-tools{top:calc(52dvh - 51px);bottom:auto;right:12px;left:auto}
+ #mobileGestureHint{color:#456b7c;background:rgba(255,255,255,.9);border-color:#dce9ee;box-shadow:0 3px 11px rgba(31,68,82,.06)}
+ .footer{height:calc(64px + env(safe-area-inset-bottom,0px));padding:0 12px env(safe-area-inset-bottom,0px)}
+ .compass{top:calc(72px + env(safe-area-inset-top,0px));right:10px;width:45px;height:45px}
+ .loadflag{top:calc(52dvh - 84px);bottom:auto;right:12px;color:#317388}
+ body.focus-model #stage,body.focus-model #analysisOverlay{height:calc(100dvh - 64px - env(safe-area-inset-bottom,0px))}
+ body.focus-model .stage-tools{top:auto;bottom:calc(77px + env(safe-area-inset-bottom,0px))}
+ body.focus-model #mobileGestureHint{top:auto;bottom:calc(77px + env(safe-area-inset-bottom,0px))}
+}
+@media(max-width:760px) and (orientation:landscape) and (max-height:520px){
+ .story{top:0;bottom:calc(54px + env(safe-area-inset-bottom,0px));width:44vw;min-width:0;padding:60px 16px 13px;border-left:1px solid #dbe8ec}
+ .stage-tools{bottom:calc(54px + env(safe-area-inset-bottom,0px) + 12px);top:auto;right:calc(44vw + 12px);left:auto}
+ .footer{height:calc(54px + env(safe-area-inset-bottom,0px))}
+}
+@media(prefers-reduced-motion:reduce){.stage-tools button{transition:none}}
+
+</style>
 </head>
 <body>
 <div id="stage"><canvas id="scene" aria-label="可旋轉、縮放的3D基地模型"></canvas></div>
 <svg id="analysisOverlay" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"></svg>
 <div class="grid-overlay"></div><div class="noise"></div>
-<div class="schematic-tag">WENSHAN · SITE ENVIRONMENT ANALYSIS</div>
+<div class="schematic-tag">WENSHAN / YONGAN · SITE ANALYSIS</div>
 <div id="loadflag" class="loadflag">正在載入 3D 模型…</div>
 <header class="topbar">
- <div class="brand"><span class="brandmark"></span><div class="brandname">SITE / ENVIRONMENT<small>永安新村都更案_方案一</small></div></div>
+ <div class="brand"><span class="brandmark"></span><div class="brandname">永安新村都更案 <span class="brand-option">方案一</span><small>SITE / ENVIRONMENT ANALYSIS</small></div></div>
  <div class="topmeta"><span class="cap">SITE / ENVIRONMENT ANALYSIS</span><span class="pill">景美溪生活圈</span><button class="iconbtn" id="modelInfo" title="資料來源及模型資訊">ⓘ</button><button class="iconbtn" id="fullScreen" title="全螢幕切換">⛶</button></div>
 </header>
 <nav class="rail" id="rail" aria-label="章節導覽"></nav>
 <div id="mobileGestureHint">單指旋轉 · 雙指縮放</div>
 <div id="analysisGuide" class="analysis-guide"><b id="guideTitle">REAL MODEL</b><span id="guideSub">基地環境視覺化</span><div id="legendItems"></div></div>
-<div class="scene-badge"><span class="line"></span><span><b>DRAG TO ORBIT</b>　/　SCROLL TO ZOOM　/　DOUBLE CLICK TO RESET</span></div>
+<div class="scene-badge"><span class="line"></span><span><b>360° INTERACTIVE MODEL</b>　·　拖曳旋轉 / 滾輪縮放 / 雙擊回正</span></div>
+<div class="stage-tools" aria-label="模型操作"><button type="button" id="resetView" title="回到目前章節的初始視角">↺ <span>重設視角</span></button><button type="button" id="toggleStory" aria-pressed="false" title="收合或展開分析資訊">▣ <span>專注模型</span></button></div>
 <div class="compass"><div id="compassRose"><span class="n">N</span><span class="s">S</span><span class="w">W</span><span class="e">E</span><span class="needle"></span></div></div>
 <aside class="story"><div id="story" class="story-container" aria-live="polite"></div></aside>
 <footer class="footer">
   <select id="mobileChapter" aria-label="手機章節切換"></select>
   <div class="footlabel"><b id="pageNo">00</b><span id="pageName">INTRODUCTION</span></div>
   <div class="progress"><div id="progress" class="progress-inner"></div><div class="progress-ticks" id="progressTicks"></div></div>
-  <span class="foot-hint">← → / SPACE 切換章節 · F 全螢幕</span>
+  <span class="foot-hint">← → / SPACE 切換章節　·　F 全螢幕</span>
   <div class="bottom-controls"><button class="navbutton" id="prev" aria-label="上一章">‹</button><button class="navbutton" id="next" aria-label="下一章">›</button></div>
 </footer>
 <div class="overlay" id="modalWrap" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
@@ -219,12 +378,14 @@ body.mobile-focus .story{display:none}
  <p>本網站以永安新村都更案方案一的基地與周邊建築模型呈現環境條件，包含臨路交通、社區人車動線、住宅及公設量體、綠化庭園、景美溪景觀與鄰房高度。道路、出入口及觀察位置依模型內的分析標記呈現。</p>
  <h3>逐層視野與鳥瞰視域</h3>
  <p>以模型標記的17樓四向觀察點為基準，選擇1至32樓及北、東、南、西主要觀察方向。其他樓層依相對17樓的樓層差，每層3.5公尺推估觀察高度；這是模型座標高度，不等於地面以上的絕對視線高度。</p>
- <p>「人眼模擬」由選定樓層的觀察點向外觀看；「鳥瞰視域」同時顯示<strong style="color:#dec4ff">淡紫色固定扇形</strong>（選取的主要觀察方向）與<strong style="color:#8de3e4">青綠色順時鐘旋轉扇形</strong>（360°掃描）。兩者共同以觀察點為中心，視域半徑約117公尺，扇形開角可由水平視角控制調整，並保留觀察樓層與高度標籤。視域屬方向示意，並未逐點計算遮擋面積或視線通透率。</p>
+ <p>「人眼模擬」由選定樓層的觀察點向外觀看；「鳥瞰視域」同時顯示<strong style="color:#8561b0">淡紫色固定扇形</strong>（選取的主要觀察方向）與<strong style="color:#1c7c8e">青綠色順時鐘旋轉扇形</strong>（360°掃描）。兩者共同以觀察點為中心，視域半徑約117公尺，扇形開角可由水平視角控制調整，並保留觀察樓層與高度標籤。視域屬方向示意，並未逐點計算遮擋面積或視線通透率。</p>
  <h3>日照與風環境</h3>
  <p>日照同時呈現夏至、春秋分、冬至三條軌跡；未選取的軌跡使用深色實線，選取季節以半透明橘色粗線強調。可切換觀察時刻，檢視太陽方位、量體受照與概念性陰影方向。</p>
  <p>風場包含冬季東北季風（約10月至翌年4月）、夏季西南季風（約6月至9月）及可切換來風方向的颱風情境；分別使用冷暖色流線、風向玫瑰圖、移動風向圖示及迎風面下洗示意。季風及颱風流線不是實測風速或CFD計算結果。</p>
  <h3>量體、交通與高度判讀</h3>
  <p>建築量體標示住宅棟、公設棟、社區警衛室及車道入口。交通與社區動線依模型路徑以半透明點虛線呈現，區分車行、人行、住戶、外送及物管動線；未確認的單向路徑以往復動畫表示。鄰房與天際線以八處鄰房的模型幾何及屋頂短引線標示相對高度，非主管機關核定建築高度。</p>
+ <h3>即時 3D 渲染品質（V1.1）</h3>
+ <p>本版新增 GPU 陰影貼圖與柔和濾波、畫面空間環境遮蔽 AO，以及本機程序生成、RGBM 編碼的高動態範圍天空環境反射。玻璃維持原有冷藍與淡黃材質色系。這些屬於展示用即時光影，並非 HDR 實景採樣、實際日照時數或正式陰影分析；在低階裝置上陰影與 AO 可能自動停用。</p>
  <h3>適用範圍</h3>
  <p>本網站用於建築規劃與環境關係的視覺化判讀，不取代正式測量、建築法規日照檢討、視線遮蔽精算、氣象統計或風洞／CFD模擬。出入口精確落點及戶外景觀尺寸，應以核定圖說及後續設計圖面確認。</p>
  <div class="layerlist" id="layerList" style="display:none"></div>
@@ -272,8 +433,17 @@ const idMat=()=>new Float32Array([1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1]);
 function perspective(out,fov,aspect,near,far){const f=1/Math.tan(fov*.5);out.fill(0);out[0]=f/aspect;out[5]=f;out[10]=(far+near)/(near-far);out[11]=-1;out[14]=2*far*near/(near-far);}
 function lookAt(out,eye,tar){let zx=eye[0]-tar[0],zy=eye[1]-tar[1],zz=eye[2]-tar[2];let len=Math.hypot(zx,zy,zz)||1;zx/=len;zy/=len;zz/=len;let xx=zz,xy=0,xz=-zx;len=Math.hypot(xx,xy,xz)||1;xx/=len;xy/=len;xz/=len;const yx=zy*xz-zz*xy, yy=zz*xx-zx*xz,yz=zx*xy-zy*xx;out.set([xx,yx,zx,0,xy,yy,zy,0,xz,yz,zz,0,-(xx*eye[0]+xy*eye[1]+xz*eye[2]),-(yx*eye[0]+yy*eye[1]+yz*eye[2]),-(zx*eye[0]+zy*eye[1]+zz*eye[2]),1]);}
 function mult(out,a,b){const c=new Float32Array(16);for(let k=0;k<4;k++)for(let r=0;r<4;r++)c[k*4+r]=a[r]*b[k*4]+a[4+r]*b[k*4+1]+a[8+r]*b[k*4+2]+a[12+r]*b[k*4+3];out.set(c);}
-const vp=idMat(),view=idMat(),proj=idMat();
+const vp=idMat(),view=idMat(),proj=idMat(),lightVP=idMat(),lightView=idMat(),lightProj=idMat();
+function ortho(out,left,right,bottom,top,near,far){out.fill(0);out[0]=2/(right-left);out[5]=2/(top-bottom);out[10]=-2/(far-near);out[12]=-(right+left)/(right-left);out[13]=-(top+bottom)/(top-bottom);out[14]=-(far+near)/(far-near);out[15]=1;}
+function makeLightVP(dir){
+ const centre=[330,38,-390],d=Math.hypot(...dir),n=dir.map(v=>v/d);
+ const e=centre.map((v,i)=>v+n[i]*580);
+ lookAt(lightView,e,centre);ortho(lightProj,-315,315,-315,315,8,1180);mult(lightVP,lightProj,lightView);
+}
 let gl=null,shader=null,vao=null,groups=[],uniform={},ready=false,info=null,vertexNum=0,triangleNum=0;
+let depthProgram=null,depthVP=null,shadowFBO=null,shadowTex=null,depthFBO=null,sceneDepth=null,hdrEnv=null;
+let shadowSize=1536,depthWidth=0,depthHeight=0,shadowActive=false,aoActive=false,lastLightKey='',lastHDRKey='';
+let shadowReady=false;let depthReady=false;let lastGPUError='';
 let webTextures={},fallbackTex=null;
 let decodedTextures={};
 let orbit={yaw:-.73,pitch:.54,dist:280,target:[321,30,-401]},desired={yaw:-.73,pitch:.54,dist:280,target:[321,30,-401]};
@@ -289,14 +459,81 @@ out vec3 vPos;out vec3 vN;out vec4 vColor;out vec2 vUV;
 void main(){vPos=aPos;vN=aN.xyz;vColor=aColor;vUV=aUV;gl_Position=uVP*vec4(aPos,1.);}`;
 const FSH=`#version 300 es
 precision highp float;
+precision highp sampler2DShadow;
 in vec3 vPos;in vec3 vN;in vec4 vColor;in vec2 vUV;
 out vec4 color;
 uniform vec3 uSun,uEye;
 uniform float uTime,uAmbient,uAlpha;
 uniform sampler2D uTex;
+uniform sampler2DShadow uShadowTex;
+uniform sampler2D uCamDepth;
+uniform sampler2D uHDREnv;
+uniform mat4 uLightVP,uView;
+uniform vec2 uDepthSize;
+uniform float uNear,uAOIntensity,uTanHalfFov;
+uniform int uShadowsOn,uAOOn,uAOSamples;
 uniform int uKind,uUseTex,uNeighborMode,uFocusNeighbor;
 float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453123);}
 float noise(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(hash(i),hash(i+vec2(1.,0.)),f.x),mix(hash(i+vec2(0.,1.)),hash(i+vec2(1.,1.)),f.x),f.y);}
+// RGBM environment map decodes genuinely greater-than-1 linear radiance (up to 12×).
+vec3 sampleHDREnvironment(vec3 d,float lod){
+ d=normalize(d);
+ vec2 uv=vec2(fract(atan(d.z,d.x)/(6.28318530718)+.5),acos(clamp(d.y,-1.,1.))/3.14159265359);
+ vec4 rgbm=textureLod(uHDREnv,uv,lod);
+ return rgbm.rgb*rgbm.a*12.0;
+}
+float calcSoftShadow(vec3 n,vec3 l){
+ if(uShadowsOn==0)return 1.;
+ vec4 q=uLightVP*vec4(vPos,1.);
+ vec3 ndc=q.xyz/max(q.w,.0001);
+ vec3 s=ndc*.5+.5;
+ if(s.x<=.001||s.x>=.999||s.y<=.001||s.y>=.999||s.z<=0.||s.z>=1.)return 1.;
+ float bias=mix(.00018,.00068,1.-max(dot(n,l),0.));
+ float angle=6.2831853*fract(sin(dot(vPos.xz,vec2(31.83,12.45)))*1581.7);
+ mat2 rot=mat2(cos(angle),-sin(angle),sin(angle),cos(angle));
+ vec2 taps[12]=vec2[12](vec2(-.86,.10),vec2(.49,.77),vec2(.83,-.48),vec2(-.45,-.72),vec2(-.24,.49),vec2(.22,-.15),vec2(.07,.94),vec2(-.96,-.51),vec2(.95,.37),vec2(-.70,.69),vec2(.45,-.93),vec2(.04,-.78));
+ float lit=0.;
+ for(int k=0;k<12;k++){
+  vec2 uv=s.xy+rot*taps[k]*(2.9/float(textureSize(uShadowTex,0).x));
+  lit+=texture(uShadowTex,vec3(uv,s.z-bias));
+ }
+ return clamp(lit/12.,.0,1.);
+}
+float calcAmbientOcclusion(vec3 n){
+ if(uAOOn==0||uAOSamples==0)return 0.;
+ vec2 uv=gl_FragCoord.xy/uDepthSize;
+ vec3 viewP=(uView*vec4(vPos,1.)).xyz;
+ float viewDist=-viewP.z;
+ if(viewDist<=0.)return 0.;
+ // Radius is 3.8 metres in view space; convert to screen pixels with each camera fov.
+ float focus=.5*uDepthSize.y/max(uTanHalfFov,.01);
+ float radiusPx=clamp(3.8*focus/viewDist,1.8,50.);
+ vec2 offsets[12]=vec2[12](vec2(.18,.48),vec2(-.49,.12),vec2(.61,-.09),vec2(-.05,-.84),vec2(.69,.52),vec2(-.62,-.53),vec2(.94,-.37),vec2(-.96,.34),vec2(.37,.91),vec2(-.27,.95),vec2(.20,-.27),vec2(-.29,-.18));
+ float ang=6.2831853*fract(sin(dot(gl_FragCoord.xy,vec2(12.9898,78.233)))*43758.5453);
+ mat2 rotate=mat2(cos(ang),-sin(ang),sin(ang),cos(ang));
+ vec3 viewN=normalize(mat3(uView)*n);
+ float occ=0.,weight=0.;
+ float nf=uTanHalfFov;
+ for(int k=0;k<12;k++){
+  if(k>=uAOSamples)break;
+  vec2 suv=uv+(rotate*offsets[k]*radiusPx)/uDepthSize;
+  if(any(lessThan(suv,vec2(.005)))||any(greaterThan(suv,vec2(.995))))continue;
+  float dep=texture(uCamDepth,suv).r;
+  if(dep>.9999)continue;
+  float zndc=dep*2.-1.;float far=3000.;
+  float zz=-(2.*uNear*far)/(far+uNear-zndc*(far-uNear));
+  vec3 q=vec3((suv.x*2.-1.)*(-zz)*nf*uDepthSize.x/uDepthSize.y,(suv.y*2.-1.)*(-zz)*nf,zz);
+  vec3 diff=q-viewP;
+  float dist=length(diff);
+  if(dist>.12&&dist<5.0){
+   float facing=dot(diff/dist,viewN);
+   float falloff=1.-smoothstep(.3,5.,dist);
+   occ+=smoothstep(.05,.58,facing)*falloff;
+  }
+  weight+=1.;
+ }
+ return clamp((occ/max(weight,1.))*uAOIntensity*1.7,0.,.70);
+}
 void main(){
  vec3 n=normalize(vN),l=normalize(uSun),v=normalize(uEye-vPos);
  float ndl=max(dot(n,l),0.),ndv=clamp(abs(dot(n,v)),0.,1.);
@@ -312,14 +549,20 @@ void main(){
  bool surrounding=(neigh||uKind==8||uKind==9||uKind==12||uKind==13);
  float rough=stone?.67:(grass?.91:(road?.86:(water?.12:(glass?.07:.56))));
  float specular=pow(sunSpec,mix(152.,11.,rough)) * mix(.72,.10,rough);
+ float shadow=calcSoftShadow(n,l);
+ float ao=(!glass && !water)?calcAmbientOcclusion(n):0.;
  vec3 r=reflect(-v,n);
- vec3 sky=mix(vec3(.15,.23,.33),vec3(.53,.73,.91),clamp(r.y*.7+.45,0.,1.));
+ vec3 sky=sampleHDREnvironment(r,glass?0.:3.);
+ sky=sky/(1.+sky*.52);
  vec3 horizon=mix(vec3(.12,.17,.20),sky,.58);
  if(glass){
    // glass2 is the podium's pale-yellow glazed material; retain a gentle sky reflection.
    vec3 glassBlue=uKind==1?vec3(.07,.16,.29):vec3(.94,.83,.57);
-   rgb=mix(glassBlue,sky,uKind==2?(.08+.25*fres):(.24+.66*fres));
-   rgb+=vec3(1.,.94,.79)*specular*1.12;
+   // Base tint remains identical to V1's glass1 blue and glass2 warm-yellow.
+   vec3 reflected=sampleHDREnvironment(r,uKind==2?1.:0.);
+   reflected=reflected/(1.+reflected*.68);
+   rgb=mix(glassBlue,reflected,uKind==2?(.10+.22*fres):(.28+.57*fres));
+   rgb+=vec3(1.,.94,.79)*specular*1.12*shadow;
    rgb+=vec3(.06,.12,.18)*max(0.,n.y);
  }else if(water){
    float wave=noise(vPos.xz*.12+uTime*.05);
@@ -329,9 +572,9 @@ void main(){
    if(grass)rgb*=.88+.22*grain;
    if(stone)rgb*=.92+.13*grain;
    if(road)rgb*=.92+.1*grain;
-   rgb*=uAmbient+.69*ndl;
+   rgb*=uAmbient*(1.-.68*ao)+.69*ndl*mix(.27,1.,shadow);
    rgb+=sky*(.03+.25*fres)*(stone?.24:grass?.045:road?.06:.22);
-   rgb+=vec3(1.,.97,.92)*specular*(stone?.26:.52);
+   rgb+=vec3(1.,.97,.92)*specular*(stone?.26:.52)*shadow;
  }
  float alpha=1.;
  if(uKind==1)alpha=.22+.40*fres;
@@ -349,11 +592,101 @@ void main(){
    // Use restrained directional variation rather than the original washed-out white vertices.
    float roadShade=clamp(.88+.14*ndl,.84,1.02);
    float roadGrain=.97+.06*noise(vPos.xz*.48);
-   rgb=vec3(.434)*roadShade*roadGrain;
+   rgb=vec3(.434)*roadShade*roadGrain*(.56+.44*shadow)*(1.-.48*ao);
  }
  color=vec4(pow(clamp(rgb,0.,1.),vec3(.83)),alpha);
 }`;
 function compile(type,src){const s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))throw Error('著色器錯誤：'+gl.getShaderInfoLog(s));return s}
+const DEPTH_VSH=`#version 300 es
+precision highp float;
+layout(location=0) in vec3 aPos;
+uniform mat4 uDepthVP;
+void main(){gl_Position=uDepthVP*vec4(aPos,1.);}`;
+const DEPTH_FSH=`#version 300 es
+precision highp float;
+void main(){}`;
+function compileProgram(vs,fs){
+ const p=gl.createProgram();gl.attachShader(p,compile(gl.VERTEX_SHADER,vs));gl.attachShader(p,compile(gl.FRAGMENT_SHADER,fs));gl.linkProgram(p);
+ if(!gl.getProgramParameter(p,gl.LINK_STATUS))throw Error('渲染程序連結失敗：'+gl.getProgramInfoLog(p));
+ return p;
+}
+function makeDepthTarget(w,h,asShadow){
+ const tex=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,tex);
+ gl.texImage2D(gl.TEXTURE_2D,0,gl.DEPTH_COMPONENT24,w,h,0,gl.DEPTH_COMPONENT,gl.UNSIGNED_INT,null);
+ gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,asShadow?gl.LINEAR:gl.NEAREST);
+ gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,asShadow?gl.LINEAR:gl.NEAREST);
+ gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);
+ gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
+ if(asShadow){gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_COMPARE_MODE,gl.COMPARE_REF_TO_TEXTURE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_COMPARE_FUNC,gl.LEQUAL);}
+ const fbo=gl.createFramebuffer();gl.bindFramebuffer(gl.FRAMEBUFFER,fbo);
+ gl.framebufferTexture2D(gl.FRAMEBUFFER,gl.DEPTH_ATTACHMENT,gl.TEXTURE_2D,tex,0);
+ gl.drawBuffers([gl.NONE]);gl.readBuffer(gl.NONE);
+ const ok=gl.checkFramebufferStatus(gl.FRAMEBUFFER)===gl.FRAMEBUFFER_COMPLETE;
+ gl.bindFramebuffer(gl.FRAMEBUFFER,null);
+ if(!ok){gl.deleteFramebuffer(fbo);gl.deleteTexture(tex);return null;}
+ return {tex,fbo,width:w,height:h};
+}
+function setupDepthResources(){
+ depthProgram=compileProgram(DEPTH_VSH,DEPTH_FSH);depthVP=gl.getUniformLocation(depthProgram,'uDepthVP');
+ shadowSize=Math.min(gl.getParameter(gl.MAX_TEXTURE_SIZE),innerWidth<760?1024:1536);
+ const a=makeDepthTarget(shadowSize,shadowSize,true);
+ shadowActive=!!a;if(a){shadowFBO=a.fbo;shadowTex=a.tex;}
+ if(!shadowActive)console.warn('陰影貼圖不支援，保留原始光照');
+ resizeAODepth();
+}
+function resizeAODepth(){
+ if(!gl||!depthProgram)return;
+ if(depthFBO){gl.deleteFramebuffer(depthFBO);gl.deleteTexture(sceneDepth);depthFBO=null;sceneDepth=null;}
+ const max=gl.getParameter(gl.MAX_TEXTURE_SIZE);
+ depthWidth=Math.min(canvas.width,max);depthHeight=Math.min(canvas.height,max);
+ const a=makeDepthTarget(depthWidth,depthHeight,false);
+ aoActive=!!a;if(a){depthFBO=a.fbo;sceneDepth=a.tex;}
+ if(!aoActive)console.warn('AO 深度緩衝不支援，保留原始環境光照');
+}
+function drawDepth(fbo,w,h,mat,shadow){
+ gl.bindFramebuffer(gl.FRAMEBUFFER,fbo);gl.viewport(0,0,w,h);
+ gl.colorMask(false,false,false,false);gl.depthMask(true);gl.disable(gl.BLEND);
+ gl.enable(gl.DEPTH_TEST);gl.clear(gl.DEPTH_BUFFER_BIT);
+ gl.useProgram(depthProgram);gl.uniformMatrix4fv(depthVP,false,mat);
+ gl.bindVertexArray(vao);
+ if(shadow){gl.enable(gl.POLYGON_OFFSET_FILL);gl.polygonOffset(1.4,2.1);}
+ for(const g of groups){if(g.id===1||g.id===2||g.id===15)continue;gl.drawElements(gl.TRIANGLES,g.count,gl.UNSIGNED_INT,g.start*4);}
+ if(shadow)gl.disable(gl.POLYGON_OFFSET_FILL);
+ gl.colorMask(true,true,true,true);gl.bindFramebuffer(gl.FRAMEBUFFER,null);
+}
+// Environment texture is encoded as RGBM radiance (0..12), not an 8-bit LDR image.
+// All sky values are generated locally: no external network dependency, no fake photo panorama.
+function buildHDRSky(sun){
+ const width=768,height=384,data=new Uint8Array(width*height*4);
+ const length=Math.hypot(...sun);const L=sun.map(v=>v/length);
+ const clamp01=x=>Math.max(0,Math.min(1,x));
+ for(let y=0;y<height;y++)for(let x=0;x<width;x++){
+  const lon=(x/width-.5)*Math.PI*2,lat=Math.PI*y/height;
+  const d=[Math.sin(lat)*Math.cos(lon),Math.cos(lat),Math.sin(lat)*Math.sin(lon)];
+  const yy=d[1];const horizon=Math.exp(-Math.pow(yy/.115,2));
+  const sky=Math.max(0,yy);
+  let R=.20+.28*sky+.32*horizon,G=.34+.38*sky+.24*horizon,B=.55+.53*sky+.14*horizon;
+  if(yy<0){let a=clamp01(-yy*6);R=R*(1-a)+(.23+.08*Math.sin(lon*3))*a;G=G*(1-a)+.26*a;B=B*(1-a)+.23*a;}
+  // soft white clouds and long bright sky reflections provide facade variation.
+  const cloud=Math.pow(Math.max(0,Math.sin(lon*5.7+1.4*Math.sin(lat*4.5))*Math.cos(lat*6.9)),5)*Math.max(0,yy)*.50;
+  R+=cloud;G+=cloud;B+=cloud;
+  const s=Math.max(0,d[0]*L[0]+d[1]*L[1]+d[2]*L[2]);
+  const disk=Math.pow(s,3000)*9.0,glow=Math.pow(s,120)*.70;
+  R+=disk+glow;G+=disk*.87+glow*.91;B+=disk*.65+glow*.74;
+  const m=Math.min(1,Math.ceil(Math.max(R,G,B)/12*255)/255)||1;
+  const i=(y*width+x)*4;
+  data[i]=Math.round(clamp01(R/(m*12))*255);data[i+1]=Math.round(clamp01(G/(m*12))*255);data[i+2]=Math.round(clamp01(B/(m*12))*255);data[i+3]=Math.round(m*255);
+ }
+ if(!hdrEnv)hdrEnv=gl.createTexture();
+ gl.activeTexture(gl.TEXTURE3);gl.bindTexture(gl.TEXTURE_2D,hdrEnv);
+ gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.REPEAT);
+ gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
+ gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR_MIPMAP_LINEAR);
+ gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
+ gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,width,height,0,gl.RGBA,gl.UNSIGNED_BYTE,data);
+ gl.generateMipmap(gl.TEXTURE_2D);
+ gl.activeTexture(gl.TEXTURE0);
+}
 function makeTexture(img){
  const tx=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,tx);
  gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,false);
@@ -385,7 +718,7 @@ function initRenderer(buffer){
  shader=gl.createProgram();gl.attachShader(shader,compile(gl.VERTEX_SHADER,VSH));gl.attachShader(shader,compile(gl.FRAGMENT_SHADER,FSH));gl.linkProgram(shader);
  if(!gl.getProgramParameter(shader,gl.LINK_STATUS))throw Error('模型材質程式啟動失敗：'+gl.getProgramInfoLog(shader));
  gl.useProgram(shader);
- for(const n of ['uVP','uSun','uEye','uTime','uAmbient','uKind','uUseTex','uAlpha','uTex','uNeighborMode','uFocusNeighbor'])uniform[n]=gl.getUniformLocation(shader,n);
+ for(const n of ['uVP','uSun','uEye','uTime','uAmbient','uKind','uUseTex','uAlpha','uTex','uNeighborMode','uFocusNeighbor','uShadowTex','uCamDepth','uHDREnv','uLightVP','uView','uDepthSize','uNear','uTanHalfFov','uShadowsOn','uAOOn','uAOSamples','uAOIntensity'])uniform[n]=gl.getUniformLocation(shader,n);
  vao=gl.createVertexArray();gl.bindVertexArray(vao);
  const vbo=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,vbo);gl.bufferData(gl.ARRAY_BUFFER,vb,gl.STATIC_DRAW);
  const ibo=gl.createBuffer();gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,ibo);gl.bufferData(gl.ELEMENT_ARRAY_BUFFER,ib,gl.STATIC_DRAW);
@@ -393,16 +726,17 @@ function initRenderer(buffer){
  gl.enableVertexAttribArray(1);gl.vertexAttribPointer(1,4,gl.BYTE,true,stride,12);
  gl.enableVertexAttribArray(2);gl.vertexAttribPointer(2,4,gl.UNSIGNED_BYTE,true,stride,16);
  gl.enableVertexAttribArray(3);gl.vertexAttribPointer(3,2,gl.FLOAT,false,stride,20);
- gl.enable(gl.DEPTH_TEST);gl.disable(gl.CULL_FACE);gl.depthFunc(gl.LEQUAL);gl.clearColor(.034,.062,.092,1);
+ gl.enable(gl.DEPTH_TEST);gl.disable(gl.CULL_FACE);gl.depthFunc(gl.LEQUAL);gl.clearColor(.970,.981,.988,1);
  // Build textures from source GLB's genuine SketchUp material images, embedded offline.
  for(const [name,img] of Object.entries(decodedTextures))webTextures[name]=makeTexture(img);
  fallbackTex=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,fallbackTex);
  gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,1,1,0,gl.RGBA,gl.UNSIGNED_BYTE,new Uint8Array([255,255,255,255]));
  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);
  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
+ setupDepthResources();buildHDRSky([.5,.9,.38]);
  ready=true;
 }
-function resize(){let dpr=Math.min(devicePixelRatio||1,innerWidth<850?1.2:1.7);canvas.width=Math.max(1,Math.floor(mount.clientWidth*dpr));canvas.height=Math.max(1,Math.floor(mount.clientHeight*dpr));overlay.setAttribute('viewBox',`0 0 ${mount.clientWidth} ${mount.clientHeight}`);overlay.setAttribute('width',mount.clientWidth);overlay.setAttribute('height',mount.clientHeight);if(gl)gl.viewport(0,0,canvas.width,canvas.height);}
+function resize(){let dpr=Math.min(devicePixelRatio||1,innerWidth<850?1.2:1.7);canvas.width=Math.max(1,Math.floor(mount.clientWidth*dpr));canvas.height=Math.max(1,Math.floor(mount.clientHeight*dpr));overlay.setAttribute('viewBox',`0 0 ${mount.clientWidth} ${mount.clientHeight}`);overlay.setAttribute('width',mount.clientWidth);overlay.setAttribute('height',mount.clientHeight);if(gl){gl.viewport(0,0,canvas.width,canvas.height);if(depthProgram)resizeAODepth();}}
 addEventListener('resize',resize);addEventListener('orientationchange',()=>setTimeout(resize,300));
 function updateMatrices(){
  if(state.mode==='view'&&state.eyeMode==='human'){
@@ -503,6 +837,17 @@ $('#mobileChapter').onchange=e=>setChapter(Number(e.target.value));
 $('#modelInfo').onclick=()=>$('#modalWrap').classList.add('open');$('#modalClose').onclick=()=>$('#modalWrap').classList.remove('open');
 $('#modalWrap').onclick=e=>{if(e.target===$('#modalWrap'))$('#modalWrap').classList.remove('open');};
 $('#fullScreen').onclick=()=>{if(!document.fullscreenElement){document.documentElement.requestFullscreen?.().catch(()=>{});}else document.exitFullscreen?.();};
+
+$('#resetView').onclick=()=>{state.lookYaw=0;state.lookPitch=0;setView();};
+$('#toggleStory').onclick=()=>{
+ const focus=document.body.classList.toggle('focus-model');
+ const button=$('#toggleStory');
+ button.setAttribute('aria-pressed',String(focus));
+ button.querySelector('span').textContent=focus?'顯示分析':'專注模型';
+ button.title=focus?'顯示分析說明面板':'收合分析說明面板';
+ resize();
+};
+
 document.addEventListener('keydown',e=>{if(/INPUT|SELECT|TEXTAREA/.test(document.activeElement?.tagName||''))return;
  if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();setChapter(selectedPage+1)}
  if(e.key==='ArrowLeft'){e.preventDefault();setChapter(selectedPage-1)}
@@ -696,7 +1041,7 @@ function drawRoads(){roads.forEach(r=>{if(r.anchor?.web_xyz_m)pill(r.anchor.web_
  labels.forEach(r=>{if(r.anchor?.web_xyz_m)pill(r.anchor.web_xyz_m,r.text,COL.garden,'','landmark');});}
 function drawEyeReticle(){
  const w=mount.clientWidth,h=mount.clientHeight,cx=w*.5,cy=h*.51;
- const col='#bcefe6';
+ const col='#267b90';
  overlay.append(svg('circle',{cx,cy,r:28,stroke:col,'stroke-opacity':'.72','stroke-width':'1.1',fill:'none'}));
  overlay.append(svg('path',{d:`M${cx-55} ${cy} h23 M${cx+32} ${cy} h23 M${cx} ${cy-53} v23 M${cx} ${cy+30} v23`,stroke:col,'stroke-width':'1.3','stroke-opacity':'.70',fill:'none'}));
  const t=svg('text',{x:cx+40,y:cy-34,fill:'#dcf8f1','font-size':'12'});t.textContent=`${state.floor}F • ${state.viewDir}向人眼視角`;overlay.append(t);
@@ -971,13 +1316,36 @@ function frame(ts){
  orbit.yaw+=(desired.yaw-orbit.yaw)*.14;orbit.pitch+=(desired.pitch-orbit.pitch)*.14;
  orbit.dist+=(desired.dist-orbit.dist)*.14;
  for(let i=0;i<3;i++)orbit.target[i]+=(desired.target[i]-orbit.target[i])*.14;
- updateMatrices();gl.viewport(0,0,canvas.width,canvas.height);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
+ updateMatrices();
+ const light=state.mode==='sun'?sunDir():[.5,.9,.38];
+ const lightKey=light.map(x=>x.toFixed(4)).join('/');
+ if(lightKey!==lastLightKey){
+  makeLightVP(light);
+  if(shadowActive){drawDepth(shadowFBO,shadowSize,shadowSize,lightVP,true);shadowReady=true;}
+  // sky follows demonstration light, while analytical sun paths remain unmodified.
+  buildHDRSky(light);lastHDRKey=lightKey;lastLightKey=lightKey;
+ }
+ if(aoActive){drawDepth(depthFBO,depthWidth,depthHeight,vp,false);depthReady=true;}
+ gl.viewport(0,0,canvas.width,canvas.height);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
  gl.useProgram(shader);gl.bindVertexArray(vao);gl.uniformMatrix4fv(uniform.uVP,false,vp);
- gl.uniform3fv(uniform.uEye,eye);gl.uniform3fv(uniform.uSun,state.mode==='sun'?sunDir():[.5,.9,.38]);
+ gl.uniform3fv(uniform.uEye,eye);gl.uniform3fv(uniform.uSun,light);
  gl.uniform1f(uniform.uAmbient,state.mode==='sun'?.33:.61);gl.uniform1f(uniform.uTime,ts*.001);
  gl.uniform1i(uniform.uNeighborMode,state.mode==='neighbors'?1:0);
  gl.uniform1i(uniform.uFocusNeighbor,state.neighbor);
  gl.uniform1i(uniform.uTex,0);
+ gl.uniformMatrix4fv(uniform.uLightVP,false,lightVP);
+ gl.uniformMatrix4fv(uniform.uView,false,view);
+ gl.uniform2f(uniform.uDepthSize,depthWidth||canvas.width,depthHeight||canvas.height);
+ gl.uniform1f(uniform.uNear,state.mode==='view'&&state.eyeMode==='human'?.08:.25);
+ gl.uniform1f(uniform.uTanHalfFov,Math.tan((state.mode==='view'&&state.eyeMode==='human'?state.fov:48)*rad*.5));
+ gl.uniform1f(uniform.uAOIntensity,1.15);
+ gl.uniform1i(uniform.uShadowsOn,shadowReady?1:0);
+ gl.uniform1i(uniform.uAOOn,depthReady?1:0);
+ gl.uniform1i(uniform.uAOSamples,innerWidth<760?6:12);
+ gl.activeTexture(gl.TEXTURE1);gl.bindTexture(gl.TEXTURE_2D,shadowTex);gl.uniform1i(uniform.uShadowTex,1);
+ gl.activeTexture(gl.TEXTURE2);gl.bindTexture(gl.TEXTURE_2D,sceneDepth);gl.uniform1i(uniform.uCamDepth,2);
+ gl.activeTexture(gl.TEXTURE3);gl.bindTexture(gl.TEXTURE_2D,hdrEnv);gl.uniform1i(uniform.uHDREnv,3);
+ gl.activeTexture(gl.TEXTURE0);
  for(const g of groups){
   const glass=(g.id===1||g.id===2);
   // Neighbor meshes (20–27) and surroundings (8/9/12/13) are solid, depth-writing geometry.
